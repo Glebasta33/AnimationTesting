@@ -1,4 +1,4 @@
-package com.trusov.animationtesting.ui.gallery
+package com.trusov.animationtesting.ui.lottie
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,14 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.trusov.animationtesting.databinding.FragmentGalleryBinding
+import com.trusov.animationtesting.databinding.FragmentLottieBinding
 
-class GalleryFragment : Fragment() {
+class LottieFragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentLottieBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,17 +19,22 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
+        val viewModel =
+            ViewModelProvider(this).get(LottieViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentLottieBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        viewModel.text.observe(viewLifecycleOwner) {
+            //textView.text = it
         }
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.animationView.playAnimation()
     }
 
     override fun onDestroyView() {
