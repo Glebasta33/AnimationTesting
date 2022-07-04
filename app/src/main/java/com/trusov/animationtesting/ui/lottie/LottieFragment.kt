@@ -25,16 +25,18 @@ class LottieFragment : Fragment() {
         _binding = FragmentLottieBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
         viewModel.text.observe(viewLifecycleOwner) {
-            //textView.text = it
+
         }
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.animationView.playAnimation()
+        binding.animationView1.playAnimation()
+        binding.animationView2.playAnimation()
+        binding.animationView3.playAnimation()
+        binding.animationView4.playAnimation()
     }
 
     override fun onDestroyView() {
