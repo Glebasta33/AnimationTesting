@@ -15,6 +15,6 @@
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_android_black_24dp"
-            android:title="..." />
+            android:title="Coil" />
     </group>
 </menu>

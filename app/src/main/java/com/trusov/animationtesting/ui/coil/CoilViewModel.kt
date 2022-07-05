@@ -1,10 +1,10 @@
-package com.trusov.animationtesting.ui.slideshow
+package com.trusov.animationtesting.ui.coil
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SlideshowViewModel : ViewModel() {
+class CoilViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is slideshow Fragment"
